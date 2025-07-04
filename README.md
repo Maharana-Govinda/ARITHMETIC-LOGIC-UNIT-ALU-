@@ -9,3 +9,7 @@ DOMAIN: VLSI
 DURATION: 4 WEEEKS
 
 MENTOR: NEELA SANTOSH
+
+#OUTPUT
+
+![Image](https://github.com/user-attachments/assets/9dbc271d-a2a5-4497-96d1-03730d7b7c1d)
