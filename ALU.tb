@@ -1,0 +1,35 @@
+`timescale 1ns/1ns
+
+module ALU_tb;
+
+reg [3:0] A, B;
+reg [2:0] Sel;
+wire [3:0] Y;
+wire Zero;
+
+// Instantiate the ALU module
+ALU dut (.A(A), .B(B), .Sel(Sel), .Y(Y), .Zero(Zero));
+
+// Variables for simulation
+integer i;
+
+initial begin
+    $display("Random ALU Testing:");
+    $display(" Time |  A  |  B  |  Sel  |  Y  |  Zero");
+    $display("----------------------------");
+
+    // Loop to perform 10 random tests
+    for (i = 0; i < 10; i = i + 1) begin
+        A = $random % 16;       // Random value 0?15
+        B = $random % 16;
+        Sel = $random % 5;      // Valid opcodes: 0 to 4
+        #10;                    // Wait 10 ns
+
+        // Print current test
+        $display("%4t | %4b | %4b | %03b | %4b |  %b", $time, A, B, Sel, Y, Zero);
+    end
+
+    $finish;
+end
+
+endmodule
